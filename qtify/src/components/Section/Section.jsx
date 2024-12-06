@@ -3,7 +3,7 @@ import CardComponent from "../Card/Card";
 import ButtonComponent from "../Button";
 import styles from "./Section.module.css";
 
-const Section = ({ data, title }) => {
+const Section = ({ data, title, isSongComponent = false }) => {
   console.log("albums  :", data);
   return (
     <div
@@ -23,11 +23,12 @@ const Section = ({ data, title }) => {
         }}
       >
         <h3 style={{ color: "var(--color-white)" }}>{title}</h3>
-        <ButtonComponent text="Show All" />
+        {!isSongComponent && <ButtonComponent text="Show All" />}
       </div>
       <div className={styles.gridContainer}>
         {data.map((album) => (
           <CardComponent
+            isSongComponent={isSongComponent}
             key={album.id}
             image={album.image}
             followers={album.follows}

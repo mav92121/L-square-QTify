@@ -3,7 +3,7 @@ import Chip from "@mui/material/Chip";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 
-const CardComponent = ({ image, followers, title }) => {
+const CardComponent = ({ image, followers, title, isSongComponent }) => {
   return (
     <>
       <Card
@@ -34,7 +34,7 @@ const CardComponent = ({ image, followers, title }) => {
               backgroundColor: "var(--color-black)",
               color: "var(--color-white)",
             }}
-            label={`${followers} Follows`}
+            label={`${followers} ${isSongComponent ? "Likes" : "Follows"}`}
           />
           <div>{title}</div>
         </div>

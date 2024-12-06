@@ -19,18 +19,25 @@ function App() {
     );
     setNewAlbums(data.data);
   };
+  const fetchSongs = async () => {
+    const data = await axios.get("https://qtify-backend-labs.crio.do/songs");
+    setSongs(data.data);
+  };
   useEffect(() => {
     fetchData();
     fetchNewAlbums();
+    fetchSongs();
   }, []);
   const [albums, setAlbums] = useState([]);
   const [newAlbums, setNewAlbums] = useState([]);
+  const [songs, setSongs] = useState([]);
   return (
     <div className="App">
       <Navbar />
       <Hero />
       <Section title="Top Albums" data={albums} />
       <Section title="New Albums" data={newAlbums} />
+      <Section title="Songs" isSongComponent={true} data={songs} />
     </div>
   );
 }
