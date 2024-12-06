@@ -11,19 +11,26 @@ function App() {
     const data = await axios.get(
       "https://qtify-backend-labs.crio.do/albums/top"
     );
-    console.log(data);
     setAlbums(data.data);
+  };
+  const fetchNewAlbums = async () => {
+    const data = await axios.get(
+      "https://qtify-backend-labs.crio.do/albums/new"
+    );
+    setNewAlbums(data.data);
   };
   useEffect(() => {
     fetchData();
+    fetchNewAlbums();
   }, []);
   const [albums, setAlbums] = useState([]);
+  const [newAlbums, setNewAlbums] = useState([]);
   return (
     <div className="App">
       <Navbar />
       <Hero />
       <Section title="Top Albums" data={albums} />
-      <Section title="New Albums" data={albums} />
+      <Section title="New Albums" data={newAlbums} />
     </div>
   );
 }
