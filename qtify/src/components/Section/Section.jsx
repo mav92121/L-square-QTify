@@ -4,6 +4,7 @@ import ButtonComponent from "../Button";
 import styles from "./Section.module.css";
 
 const Section = ({ data, title }) => {
+  console.log("albums  :", data);
   return (
     <div style={{ padding: "0 31px", backgroundColor: "var(--color-black)" }}>
       <div
@@ -24,6 +25,7 @@ const Section = ({ data, title }) => {
             key={album.id}
             image={album.image}
             followers={album.follows}
+            title={album.title}
           />
         ))}
       </div>

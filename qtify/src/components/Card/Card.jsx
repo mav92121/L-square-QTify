@@ -3,7 +3,7 @@ import Chip from "@mui/material/Chip";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 
-const CardComponent = ({ image, followers }) => {
+const CardComponent = ({ image, followers, title }) => {
   return (
     <>
       <Card
@@ -14,16 +14,18 @@ const CardComponent = ({ image, followers }) => {
           position: "relative",
         }}
       >
-        <CardMedia sx={{ height: 170 }} image={image} title="green iguana" />
+        <CardMedia sx={{ height: 170 }} image={image} title={title} />
         <div
           style={{
-            height: "35px",
+            height: "55px",
             display: "flex",
+            flexDirection: "column",
             alignItems: "center",
             justifyContent: "flex-start",
+            paddingTop: "10px",
           }}
         >
-          <Chip 
+          <Chip
             style={{
               borderRadius: "10px",
               marginLeft: "8px",
@@ -34,6 +36,7 @@ const CardComponent = ({ image, followers }) => {
             }}
             label={`${followers} Follows`}
           />
+          <div>{title}</div>
         </div>
       </Card>
     </>
