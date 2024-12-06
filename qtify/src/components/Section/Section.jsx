@@ -6,7 +6,13 @@ import styles from "./Section.module.css";
 const Section = ({ data, title }) => {
   console.log("albums  :", data);
   return (
-    <div style={{ padding: "0 31px", backgroundColor: "var(--color-black)" }}>
+    <div
+      style={{
+        padding: "0 31px",
+        backgroundColor: "var(--color-black)",
+        paddingBottom: "20px",
+      }}
+    >
       <div
         style={{
           display: "flex",

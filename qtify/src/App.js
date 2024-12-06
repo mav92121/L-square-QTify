@@ -22,7 +22,8 @@ function App() {
     <div className="App">
       <Navbar />
       <Hero />
-      <Section title="Tob Albums" data={albums} />
+      <Section title="Top Albums" data={albums} />
+      <Section title="New Albums" data={albums} />
     </div>
   );
 }
